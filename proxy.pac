@@ -15,6 +15,7 @@ function FindProxyForURL (url, host) {
   }
 
   if (shExpMatch(url, ".*youtube*.")|| shExpMatch(url, ".*googlevideo*.") || shExpMatch(url, ".*gvt1*.") || hExpMatch(url, ".*video.google*.") || hExpMatch(url, ".*video.l.google.*.") || shExpMatch(url, ".*yt3.ggpht*.") || shExpMatch(url, ".*yt.be*.") || shExpMatch(url, ".*ytimg*.") || shExpMatch(url, ".*ytimg*.") || shExpMatch(url, ".*ytkids.app.goo*.") || shExpMatch(url, ".*yt-video-upload.l.google*.")){
-      return PAC_PROXY;
-  }else{return PAC_DIRECT;}
+    debug(host, false, 'youtube');  
+    return PAC_PROXY;
+  }else{debug(host, true, 'direct other'); return PAC_DIRECT;}
 }
