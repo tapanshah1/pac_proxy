@@ -263,8 +263,6 @@ function isYoutubeDomain(target) {
 }
 
 function FindProxyForURL(url, host) {
-    console.log("url pac is  : ",url)
-    console.log("host pac is  : ",host)
     if (isPlainHostName(host) || host === '127.0.0.1') {
         return PAC_DIRECT;
     }
