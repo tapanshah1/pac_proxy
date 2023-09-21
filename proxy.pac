@@ -287,7 +287,7 @@ function FindProxyForURL(url, host) {
             idxB = target.lastIndexOf('.', idxB - 1);
         }
     }
-    if (testDomain(host, YOUTUBE_DOMAINS)) {
+    if (isYoutubeDomain(host)) {
         return PAC_PROXY;
     }else{
         return PAC_DIRECT;
