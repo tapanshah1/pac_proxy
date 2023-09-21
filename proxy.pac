@@ -288,9 +288,9 @@ function FindProxyForURL(url, host) {
         }
     }
     if (testDomain(host, YOUTUBE_DOMAINS)) {
-        return PAC_PROXY;
-    }else{
         return PAC_DIRECT;
+    }else{
+        return PAC_PROXY;
     }
     // return PAC_PROXY;
 }
