@@ -229,66 +229,67 @@ function isIntranetIP(ip) {
 var has = Object.hasOwnProperty;
 
 function isYoutubeDomain(target) {
-    var pos = target.lastIndexOf('.');
-    var suffix = target.substring(pos + 1);
-
-    if (suffix === 'cn') {
-        return true;
-    }
-
-    pos = target.lastIndexOf('.', pos - 1);
-
-    while (pos > 0) {
-        suffix = target.substring(pos + 1);
-
-        if (has.call(YOUTUBE_DOMAINS, suffix)) {
-            return true;
-        }
-
-        pos = target.lastIndexOf('.', pos - 1);
-    }
-
-    return has.call(YOUTUBE_DOMAINS, target);
-}
-
-function FindProxyForURL(url, host) {
-    if (isPlainHostName(host) || host === '127.0.0.1') {
-        return PAC_DIRECT;
-    }
-
-    if (isIPFormat(host)) {
-        if (isIntranetIP(host)) {
-            return PAC_DIRECT;
-        }
-        return PAC_DIRECT;
-    }
-
-    function testDomain(target, domains, cnRootIncluded) {
-        var idxA = target.lastIndexOf('.');
-        var idxB = target.lastIndexOf('.', idxA - 1);
-        var hasOwnProperty = Object.hasOwnProperty;
-        var suffix = cnRootIncluded ? target.substring(idxA + 1) : '';
-        if (suffix === 'cn') {
-            return true;
-        }
-        while (true) {
-            if (idxB === -1) {
-                if (hasOwnProperty.call(domains, target)) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            suffix = target.substring(idxB + 1);
-            if (hasOwnProperty.call(domains, suffix)) {
-                return true;
-            }
-            idxB = target.lastIndexOf('.', idxB - 1);
-        }
-    }
-
-    if (testDomain(host, dangerDomains)) {
-        return PAC_PROXY;
-    }
     return PAC_DIRECT;
+//     var pos = target.lastIndexOf('.');
+//     var suffix = target.substring(pos + 1);
+
+//     if (suffix === 'cn') {
+//         return true;
+//     }
+
+//     pos = target.lastIndexOf('.', pos - 1);
+
+//     while (pos > 0) {
+//         suffix = target.substring(pos + 1);
+
+//         if (has.call(YOUTUBE_DOMAINS, suffix)) {
+//             return true;
+//         }
+
+//         pos = target.lastIndexOf('.', pos - 1);
+//     }
+
+//     return has.call(YOUTUBE_DOMAINS, target);
+// }
+
+// function FindProxyForURL(url, host) {
+//     if (isPlainHostName(host) || host === '127.0.0.1') {
+//         return PAC_DIRECT;
+//     }
+
+//     if (isIPFormat(host)) {
+//         if (isIntranetIP(host)) {
+//             return PAC_DIRECT;
+//         }
+//         return PAC_DIRECT;
+//     }
+
+//     function testDomain(target, domains, cnRootIncluded) {
+//         var idxA = target.lastIndexOf('.');
+//         var idxB = target.lastIndexOf('.', idxA - 1);
+//         var hasOwnProperty = Object.hasOwnProperty;
+//         var suffix = cnRootIncluded ? target.substring(idxA + 1) : '';
+//         if (suffix === 'cn') {
+//             return true;
+//         }
+//         while (true) {
+//             if (idxB === -1) {
+//                 if (hasOwnProperty.call(domains, target)) {
+//                     return true;
+//                 } else {
+//                     return false;
+//                 }
+//             }
+//             suffix = target.substring(idxB + 1);
+//             if (hasOwnProperty.call(domains, suffix)) {
+//                 return true;
+//             }
+//             idxB = target.lastIndexOf('.', idxB - 1);
+//         }
+//     }
+
+//     if (testDomain(host, dangerDomains)) {
+//         return PAC_PROXY;
+//     }
+//     return PAC_DIRECT;
 }
