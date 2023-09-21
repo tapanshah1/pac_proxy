@@ -173,6 +173,11 @@ var YOUTUBE_DOMAINS = {
 "ytkids.app.goo.gl": 1,
 "yt-video-upload.l.google.com": 1
 };
+
+var dangerDomains = {
+    // 'apple.com' : 1,
+       'youtube.com' : 1
+   };
 // var debug = function () {};
 
 // if (DEBUG_FLAG) {
@@ -273,10 +278,37 @@ function FindProxyForURL(url, host) {
         }
         return PAC_DIRECT;
     }
-    
-    if (isYoutubeDomain(host)) {
+
+    function testDomain(target, domains, cnRootIncluded) {
+        var idxA = target.lastIndexOf('.');
+        var idxB = target.lastIndexOf('.', idxA - 1);
+        var hasOwnProperty = Object.hasOwnProperty;
+        var suffix = cnRootIncluded ? target.substring(idxA + 1) : '';
+        if (suffix === 'cn') {
+            return true;
+        }
+        while (true) {
+            if (idxB === -1) {
+                if (hasOwnProperty.call(domains, target)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            suffix = target.substring(idxB + 1);
+            if (hasOwnProperty.call(domains, suffix)) {
+                return true;
+            }
+            idxB = target.lastIndexOf('.', idxB - 1);
+        }
+    }
+
+    if (testDomain(host, dangerDomains)) {
         return PAC_PROXY;
     }
+    // if (isYoutubeDomain(host)) {
+    //     return PAC_PROXY;
+    // }
 
     return PAC_DIRECT;
 }
