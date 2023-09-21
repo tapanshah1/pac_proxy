@@ -287,13 +287,11 @@ function FindProxyForURL(url, host) {
             idxB = target.lastIndexOf('.', idxB - 1);
         }
     }
-     if (testDomain(host, YOUTUBE_DOMAINS)) {
+    if (testDomain(host, YOUTUBE_DOMAINS)) {
         return PAC_PROXY;
+    }else{
+        return PAC_DIRECT;
     }
-else
-{
-return PAC_DIRECT;
-}
     //if (host == "www.youtube.com" || host == "www.youtube.com:443") {
       //  return PAC_PROXY;
     //}
