@@ -199,34 +199,6 @@ function isIntranetIP(ip) {
            isInNet(ip, '255.255.255.255', '255.255.255.255');
 }
 
-/*function isChinaIPAddress(ipchars) {
-    var left = 0;
-    var right = CHINA_IPS.length;
-    var bytes = ipchars.split('.');
-    var ip = ((bytes[0] & 0xff) << 24) |
-             ((bytes[1] & 0xff) << 16) |
-             ((bytes[2] & 0xff) << 8) |
-             (bytes[3] & 0xff);
-
-    do {
-        var mid = Math.floor((left + right) / 2);
-        var ipf = (ip & CHINA_IPS[mid][1]) >>> 0;
-        var m = (CHINA_IPS[mid][0] & CHINA_IPS[mid][1]) >>> 0;
-
-        if (ipf == m) {
-            return true;
-        }
-
-        if (ipf > m) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
-    } while (left + 1 <= right);
-
-    return false;
-}*/
-
 var has = Object.hasOwnProperty;
 
 function isYoutubeDomain(target) {
@@ -287,9 +259,15 @@ function FindProxyForURL(url, host) {
             idxB = target.lastIndexOf('.', idxB - 1);
         }
     }
-    if (testDomain(host, YOUTUBE_DOMAINS)) {
+    if (url.includes("youtube"))
+    {
         return PAC_PROXY;
     }else{
         return PAC_DIRECT;
     }
+    // if (testDomain(host, YOUTUBE_DOMAINS)) {
+    //     return PAC_PROXY;
+    // }else{
+    //     return PAC_DIRECT;
+    // }
 }
