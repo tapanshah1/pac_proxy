@@ -287,10 +287,10 @@ function FindProxyForURL(url, host) {
             idxB = target.lastIndexOf('.', idxB - 1);
         }
     }
-    // if (testDomain(host, YOUTUBE_DOMAINS)) {
-    //     return PAC_PROXY;
-    // }else{
-    //     return PAC_DIRECT;
-    // }
-    return PAC_PROXY;
+    if (testDomain(host, YOUTUBE_DOMAINS)) {
+        return PAC_PROXY;
+    }else{
+        return PAC_DIRECT;
+    }
+    // return PAC_PROXY;
 }
