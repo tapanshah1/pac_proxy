@@ -303,7 +303,7 @@ function FindProxyForURL(url, host) {
         }
     }
 
-    if (host == "www.youtube.com") {
+    if (host == "www.youtube.com" || host == "www.youtube.com:443") {
         return PAC_PROXY;
     }
     // if (isYoutubeDomain(host)) {
