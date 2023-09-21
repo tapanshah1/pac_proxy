@@ -1,5 +1,5 @@
 var PAC_DIRECT = 'DIRECT;';
-var PAC_PROXY = 'HTTPS 127.0.0.1:9989; HTTP 127.0.0.1:9989;';
+var PAC_PROXY = 'PROXY 127.0.0.1:9989; SOCKS5 127.0.0.1:9989; SOCKS 127.0.0.1:9989; DIRECT;';//'HTTPS 127.0.0.1:9989; HTTP 127.0.0.1:9989;';
 // var DEBUG_FLAG = false; // Safari may not work if you turn on `DEBUG_FLAG`
 
 var YOUTUBE_DOMAINS = {
