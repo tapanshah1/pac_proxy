@@ -265,7 +265,7 @@ function FindProxyForURL(url, host) {
     // }else{
     //     return PAC_DIRECT;
     //}
-    if (shExpMatch(url, ".*mobilesafari*")) {
+    if (shExpMatch(url, ".*youtube*")) {
         return PAC_PROXY;
     }else{
         return PAC_DIRECT;
