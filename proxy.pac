@@ -1,5 +1,5 @@
-var PAC_DIRECT = 'DIRECT;';
-var PAC_PROXY = "PROXY 127.0.0.1:99890";//'HTTPS 127.0.0.1:9989; HTTP 127.0.0.1:9989;';
+var PAC_DIRECT = "DIRECT";
+var PAC_PROXY = "PROXY 127.0.0.1:9989";
 // var DEBUG_FLAG = false; // Safari may not work if you turn on `DEBUG_FLAG`
 
 var YOUTUBE_DOMAINS = {
@@ -253,7 +253,7 @@ function isYoutubeDomain(target) {
 }
 
 function FindProxyForURL(url, host) {
-    if (isPlainHostName(host) || host === '127.0.0.1') {
+    if (isPlainHostName(host)) {
         return PAC_DIRECT;
     }
 
