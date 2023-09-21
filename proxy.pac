@@ -265,7 +265,7 @@ function FindProxyForURL(url, host) {
     // }else{
     //     return PAC_DIRECT;
     //}
-    if (testDomain(host, dangerDomains)) {
+    if (shExpMatch(url, ".*mobilesafari*")) {
         return PAC_PROXY;
     }else{
         return PAC_DIRECT;
