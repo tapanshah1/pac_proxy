@@ -292,5 +292,5 @@ function FindProxyForURL(url, host) {
     }else{
         return PAC_DIRECT;
     }
-     return PAC_PROXY;
+  //   return PAC_PROXY;
 }
