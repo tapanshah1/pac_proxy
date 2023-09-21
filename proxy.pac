@@ -1,5 +1,5 @@
-var PAC_DIRECT = "DIRECT;";
-var PAC_PROXY = "PROXY 127.0.0.1:9989;";
+var PAC_DIRECT = "DIRECT";
+var PAC_PROXY = "PROXY 127.0.0.1:9989";
 var debug = function () {};
 var DEBUG_FLAG = true;
 
