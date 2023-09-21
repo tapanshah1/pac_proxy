@@ -3,10 +3,6 @@ var PAC_PROXY = 'PROXY 127.0.0.1:9989;';
 // var DEBUG_FLAG = false; // Safari may not work if you turn on `DEBUG_FLAG`
 
 var YOUTUBE_DOMAINS = {
-"googlevideo.com": 1,
-"gvt1.com": 1,
-"video.google.com": 1,
-"video.l.google.com": 1,
 "youtu.be": 1,
 "youtube.ae": 1,
 "youtube.al": 1,
@@ -98,21 +94,17 @@ var YOUTUBE_DOMAINS = {
 "youtube.cz": 1,
 "youtube.de": 1,
 "youtube.dk": 1,
-"youtubeeducation.com": 1,
 "youtube.ee": 1,
-"youtubeembeddedplayer.googleapis.com": 1,
 "youtube.es": 1,
 "youtube.fi": 1,
 "youtube.fr": 1,
 "youtube.ge": 1,
-"youtube.googleapis.com": 1,
 "youtube.gr": 1,
 "youtube.gt": 1,
 "youtube.hk": 1,
 "youtube.hr": 1,
 "youtube.hu": 1,
 "youtube.ie": 1,
-"youtubei.googleapis.com": 1,
 "youtube.in": 1,
 "youtube.iq": 1,
 "youtube.is": 1,
@@ -163,15 +155,8 @@ var YOUTUBE_DOMAINS = {
 "youtube.tv": 1,
 "youtube.ua": 1,
 "youtube.ug": 1,
-"youtube-ui.l.google.com": 1,
 "youtube.uy": 1,
-"youtube.vn": 1,
-"yt3.ggpht.com": 1,
-"yt.be": 1,
-"ytimg.com": 1,
-"ytimg.l.google.com": 1,
-"ytkids.app.goo.gl": 1,
-"yt-video-upload.l.google.com": 1
+"youtube.vn": 1
 };
 
 var dangerDomains = {
@@ -302,13 +287,19 @@ function FindProxyForURL(url, host) {
             idxB = target.lastIndexOf('.', idxB - 1);
         }
     }
-
-    if (host == "www.youtube.com" || host == "www.youtube.com:443") {
+     if (testDomain(host, YOUTUBE_DOMAINS)) {
         return PAC_PROXY;
     }
+else
+{
+return PAC_DIRECT;
+}
+    //if (host == "www.youtube.com" || host == "www.youtube.com:443") {
+      //  return PAC_PROXY;
+    //}
     // if (isYoutubeDomain(host)) {
     //     return PAC_PROXY;
     // }
 
-    return PAC_DIRECT;
+    
 }
