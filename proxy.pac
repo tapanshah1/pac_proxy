@@ -2,7 +2,7 @@ var PAC_DIRECT = 'DIRECT;';
 var PAC_PROXY = 'PROXY 127.0.0.1:9989;';
 // var DEBUG_FLAG = false; // Safari may not work if you turn on `DEBUG_FLAG`
 
-var YOUTUBE_DOMAINS = {
+/*var YOUTUBE_DOMAINS = {
 "youtu.be": 1,
 "youtube.ae": 1,
 "youtube.al": 1,
@@ -156,7 +156,7 @@ var YOUTUBE_DOMAINS = {
 "youtube.ug": 1,
 "youtube.uy": 1,
 "youtube.vn": 1
-};
+};*/
 
 var dangerDomains = {
     // 'apple.com' : 1,
@@ -174,7 +174,7 @@ var dangerDomains = {
 //     };
 // }
 
-function isIPFormat(host) {
+/*function isIPFormat(host) {
     return !isNaN(Number(host.split('.').join('')));
 }
 
@@ -198,7 +198,7 @@ function isIntranetIP(ip) {
            isInNet(ip, '255.255.255.255', '255.255.255.255');
 }
 
-/*function isChinaIPAddress(ipchars) {
+function isChinaIPAddress(ipchars) {
     var left = 0;
     var right = CHINA_IPS.length;
     var bytes = ipchars.split('.');
@@ -229,6 +229,10 @@ function isIntranetIP(ip) {
 var has = Object.hasOwnProperty;
 
 function isYoutubeDomain(target) {
+
+     if (testDomain(host, dangerDomains)) {
+        return PAC_PROXY;
+    }
     return PAC_DIRECT;
 //     var pos = target.lastIndexOf('.');
 //     var suffix = target.substring(pos + 1);
@@ -287,9 +291,4 @@ function isYoutubeDomain(target) {
 //             idxB = target.lastIndexOf('.', idxB - 1);
 //         }
 //     }
-
-//     if (testDomain(host, dangerDomains)) {
-//         return PAC_PROXY;
-//     }
-//     return PAC_DIRECT;
 }
