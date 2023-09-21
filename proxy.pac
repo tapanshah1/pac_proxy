@@ -264,13 +264,11 @@ function isYoutubeDomain(target) {
 
 function FindProxyForURL(url, host) {
     if (isPlainHostName(host) || host === '127.0.0.1') {
-        debug(host, true, 'plain_host_name');
         return PAC_DIRECT;
     }
 
     if (isIPFormat(host)) {
         if (isIntranetIP(host)) {
-            debug(host, true, 'intranet_ip');
             return PAC_DIRECT;
         }
         return PAC_DIRECT;
