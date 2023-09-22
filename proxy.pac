@@ -43,4 +43,3 @@ function FindProxyForURL(url, host) {
     return PAC_DIRECT;
     // return PAC_PROXY;
 }
- 
