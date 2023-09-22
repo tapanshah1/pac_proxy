@@ -1,7 +1,7 @@
 var PAC_DIRECT = "DIRECT;";
 var PAC_PROXY = "PROXY 127.0.0.1:9989; DIRECT";
 // var DEBUG_FLAG = false; // Safari may not work if you turn on `DEBUG_FLAG`
-//Working pac filefor youtube
+
 function isIPFormat(host) {
     return !isNaN(Number(host.split('.').join('')));
 }
