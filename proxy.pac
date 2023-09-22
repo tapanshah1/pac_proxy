@@ -96,15 +96,5 @@ function isYoutubeDomain(target) {
 function FindProxyForURL(url, host) {
     url = url.toLowerCase();
     host = host.toLowerCase();
-    if (isPlainHostName(host) || host === '127.0.0.1') {
-        return PAC_DIRECT;
-    }
-
-    if (isIPFormat(host)) {
-        if (isIntranetIP(host)) {
-            return PAC_DIRECT;
-        }
-        return PAC_DIRECT;
-    }
     return 'PROXY 127.0.0.1:9989; DIRECT';
 }
