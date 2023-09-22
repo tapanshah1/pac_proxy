@@ -1,5 +1,5 @@
-var PAC_DIRECT = 'DIRECT;';
-var PAC_PROXY = 'PROXY 127.0.0.1:9989; DIRECT';
+var PAC_DIRECT = "DIRECT;";
+var PAC_PROXY = "PROXY 127.0.0.1:9989; DIRECT";
 // var DEBUG_FLAG = false; // Safari may not work if you turn on `DEBUG_FLAG`
 
 var YOUTUBE_DOMAINS = {
