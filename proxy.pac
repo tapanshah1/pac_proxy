@@ -5,5 +5,8 @@ var PAC_PROXY = 'PROXY 127.0.0.1:9989; DIRECT';
 function FindProxyForURL(url, host) {
     url = url.toLowerCase();
     host = host.toLowerCase();
-    return 'PROXY 127.0.0.1:9989';
+    if(host == "youtube.com"){
+        return "PROXY 127.0.0.1:9989";   
+    }
+    else{"DIRECT";}
 }
