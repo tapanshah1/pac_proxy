@@ -2,7 +2,7 @@ var PAC_DIRECT = 'DIRECT;';
 var PAC_PROXY = 'PROXY 127.0.0.1:9989; DIRECT';
 // var DEBUG_FLAG = false; // Safari may not work if you turn on `DEBUG_FLAG`
 
-/*var YOUTUBE_DOMAINS = {
+var YOUTUBE_DOMAINS = {
 'youtu.be': 1,
 'youtube.ae': 1,
 'youtube.al': 1,
@@ -157,7 +157,7 @@ var PAC_PROXY = 'PROXY 127.0.0.1:9989; DIRECT';
 'youtube.ug': 1,
 'youtube.uy': 1,
 'youtube.vn': 1
-};*/
+};
 
 var dangerDomains = {
        'youtube.com' : 1
