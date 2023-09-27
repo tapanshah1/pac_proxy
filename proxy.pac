@@ -8,5 +8,5 @@ function FindProxyForURL(url, host) {
     if(url.includes("youtube")){
         return "PROXY 127.0.0.1:9989";   
     }
-    else{"DIRECT";}
+    else{return "DIRECT";}
 }
